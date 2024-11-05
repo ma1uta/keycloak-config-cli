@@ -13,7 +13,7 @@
           "authenticator": "docker-http-basic-authenticator",
           "requirement": "DISABLED",
           "priority": 0,
-          "userSetupAllowed": true,
+          "userSetupAllowed": false,
           "autheticatorFlow": false,
           "authenticatorFlow": false
         }
@@ -30,7 +30,7 @@
           "authenticator": "docker-http-basic-authenticator",
           "requirement": "DISABLED",
           "priority": 0,
-          "userSetupAllowed": true,
+          "userSetupAllowed": false,
           "autheticatorFlow": false,
           "authenticatorFlow": false
         }
