@@ -1608,7 +1608,13 @@ class ImportClientsIT extends AbstractImportIT {
         assertThat(client.getAuthorizationServicesEnabled(), is(true));
         assertThat(client.isFrontchannelLogout(), is(false));
         assertThat(client.getProtocol(), is("openid-connect"));
-        assertThat(client.getAttributes(), anEmptyMap());
+        if (client.getAttributes().size() == 1) {
+            // https://github.com/keycloak/keycloak/commit/24aa6e143dee0cc50eb90eaf42c72cc7cf839cee
+            // realm_client attribute
+            assertThat(client.getAttributes(), hasEntry(equalTo("realm_client"), equalTo("true")));
+        } else {
+            assertThat(client.getAttributes(), anEmptyMap());
+        }
         assertThat(client.getAuthenticationFlowBindingOverrides(), anEmptyMap());
         assertThat(client.isFullScopeAllowed(), is(false));
         assertThat(client.getNodeReRegistrationTimeout(), is(0));
@@ -1750,7 +1756,13 @@ class ImportClientsIT extends AbstractImportIT {
         assertThat(client.getAuthorizationServicesEnabled(), is(true));
         assertThat(client.isFrontchannelLogout(), is(false));
         assertThat(client.getProtocol(), is("openid-connect"));
-        assertThat(client.getAttributes(), anEmptyMap());
+        if (client.getAttributes().size() == 1) {
+            // https://github.com/keycloak/keycloak/commit/24aa6e143dee0cc50eb90eaf42c72cc7cf839cee
+            // realm_client attribute
+            assertThat(client.getAttributes(), hasEntry(equalTo("realm_client"), equalTo("true")));
+        } else {
+            assertThat(client.getAttributes(), anEmptyMap());
+        }
         assertThat(client.getAuthenticationFlowBindingOverrides(), anEmptyMap());
         assertThat(client.isFullScopeAllowed(), is(false));
         assertThat(client.getNodeReRegistrationTimeout(), is(0));
@@ -1876,7 +1888,13 @@ class ImportClientsIT extends AbstractImportIT {
         assertThat(client.getAuthorizationServicesEnabled(), is(true));
         assertThat(client.isFrontchannelLogout(), is(false));
         assertThat(client.getProtocol(), is("openid-connect"));
-        assertThat(client.getAttributes(), anEmptyMap());
+        if (client.getAttributes().size() == 1) {
+            // https://github.com/keycloak/keycloak/commit/24aa6e143dee0cc50eb90eaf42c72cc7cf839cee
+            // realm_client attribute
+            assertThat(client.getAttributes(), hasEntry(equalTo("realm_client"), equalTo("true")));
+        } else {
+            assertThat(client.getAttributes(), anEmptyMap());
+        }
         assertThat(client.getAuthenticationFlowBindingOverrides(), anEmptyMap());
         assertThat(client.isFullScopeAllowed(), is(false));
         assertThat(client.getNodeReRegistrationTimeout(), is(0));
